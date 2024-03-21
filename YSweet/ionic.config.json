@@ -1,0 +1,7 @@
+{
+  "name": "YSweet",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
