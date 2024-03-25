@@ -7,6 +7,13 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
+import {
+  HttpClientModule,
+  HTTP_INTERCEPTORS,
+  HttpClientJsonpModule,
+} from '@angular/common/http'
+import { FilmsService } from './services/films.service';
+import { QueryBuilderService } from './services/query-builder.service';
 
 @NgModule({
   declarations: [
@@ -14,8 +21,17 @@ import { HomeComponent } from './views/home/home.component';
     HomeComponent,
     HeaderComponent
   ],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  imports: [
+    BrowserModule,
+    IonicModule.forRoot(), 
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientJsonpModule
+  ],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  FilmsService,
+  QueryBuilderService
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
