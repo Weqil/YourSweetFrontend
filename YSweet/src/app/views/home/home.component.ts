@@ -21,18 +21,19 @@ export class HomeComponent  implements OnInit {
     private queryBuild: QueryBuilderService,
   ) { }
 
+  films!: IFilm[] 
+
   getTopFilms() {
-    // this.filmsService.getFilms(this.queryBuild.queryBuilder('filmsForHome')).pipe(
-      this.filmsService.getFilms().pipe(
-        delay(100),
-        retry(3),
-        takeUntil(this.destroy$),
-        catchError(err => {
-          console.log(err)
-          return of(EMPTY)
-        }),
-    ).subscribe(response => {
-        console.log(response)
+    this.filmsService.getFilms(this.queryBuild.queryBuilder('filmsForHome')).pipe(
+      delay(100),
+      retry(3),
+      takeUntil(this.destroy$),
+      catchError(err => {
+        console.log(err)
+        return of(EMPTY)
+      }),
+    ).subscribe((response: any) => {
+        this.films = response
       })
   }
 
