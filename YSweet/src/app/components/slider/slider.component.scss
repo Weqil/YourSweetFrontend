@@ -1,0 +1,18 @@
+.slider{
+    width: 100%;
+    background: #fff;
+    display: flex;
+    overflow: hidden;
+    height: clamp(14.375rem, 9.511rem + 24.32vw, 27.75rem);
+    .slider-compponent{
+        width: 60rem;
+        background-color: aqua;
+        background-size: clamp(20rem, 4.727rem + 76.36vw, 62rem);
+        background-repeat: no-repeat;
+        height: clamp(14.375rem, 9.511rem + 24.32vw, 27.75rem);
+    }
+    .slider-compponent-main{
+        display: flex;
+        transition: 0.6s all;
+    }
+}
