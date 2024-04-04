@@ -4,10 +4,10 @@ import { RouteReuseStrategy } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SliderComponent } from './components/slider/slider.component';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
+import { CreateComponent } from './views/create/create.component';
 import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
@@ -20,8 +20,10 @@ import { QueryBuilderService } from './services/query-builder.service';
   declarations: [
     AppComponent,
     HomeComponent,
+    CreateComponent,
     HeaderComponent,
-    SliderComponent
+    SliderComponent,
+    
   ],
   imports: [
     BrowserModule,

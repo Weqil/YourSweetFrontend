@@ -1,0 +1,33 @@
+.main{
+    .main-content{
+        .create-header{
+          margin-top: 2rem;
+           color: #fff;
+           font-family: 'Montserrat-Regular';
+           text-align: center;
+           font-size: clamp(1rem, 0.545rem + 2.27vw, 2.25rem);
+        }
+    }
+}
+
+.create-form{
+    padding-top: 3rem;
+    margin: auto;
+    max-width: 500px;
+}
+
+.create-label{
+    font-size: clamp(0.5rem, 0.545rem + 2.27vw, 1.25rem);
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+}
+
+.input{
+    margin-bottom: 1.3rem;
+    margin-top: 0.5rem;
+    background: #303033;
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+    border-radius: 8px;
+    --padding-start: 1rem;
+}
