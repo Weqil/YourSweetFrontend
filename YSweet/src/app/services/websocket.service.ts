@@ -38,10 +38,10 @@ export class WebsocketService {
   }
 
   public sendMessage(message: Object): void {
-    console.log(this.wsc)
+    // console.log(this.wsc)
     if (this.wsc) {
       if (this.wsc.readyState === WebSocket.OPEN) {
-        this.wsc.send({message});
+        this.wsc.send(JSON.stringify(message));
       }
     }
   }
