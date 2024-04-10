@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
     //   // this.websocketService.messages.next({message:"m"})
     // })
     setTimeout(() => {
-      this.websocketService.sendMessage({messages: 'test'})
+      this.websocketService.sendMessage({test: {bool: false, str: 'true'}})
       console.log('send')
     }, 3000)
     // this.websocketService.sendMessage({messages: 'test'})
