@@ -14,6 +14,8 @@
     padding-top: 3rem;
     margin: auto;
     max-width: 500px;
+
+    
 }
 
 .create-label{
@@ -30,4 +32,33 @@
     color: #fff;
     border-radius: 8px;
     --padding-start: 1rem;
+    --padding-end: 1rem;
+}
+
+.input-textarea{
+    margin-bottom: 1.3rem;
+    margin-top: 0.5rem;
+    background: #303033;
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+    border-radius: 8px;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    min-height: 150px;
+}
+
+
+.file-button{
+    --background: #303033;
+}
+  
+.video-peview{
+    border-radius: 22px;
+    margin-top: 2rem;
+    background: #303033;
+    height: 15rem;
+    max-width: 26rem;
+    margin-bottom: 2rem;
+    background-image: url(/assets/imgs/video-none.png);
+    background-size: 404px 268px;
 }

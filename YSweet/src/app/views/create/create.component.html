@@ -5,9 +5,22 @@
       <form class="create-form" action="">
           <ion-label class="create-label" >Название</ion-label>
           <ion-input class="input" placeholder="Введите название фильма"></ion-input>
-          <ion-label class="create-label" >Жанр</ion-label>
-          <ion-input class="input" placeholder="Введите название фильма"></ion-input>
+          <ion-label class="create-label">Жанр</ion-label>
+          <ion-select (ionChange)="changeCategory($event)" class="input" placeholder="Выберите жанр">
+            <ion-select-option *ngFor="let category of categories" value="{{category.category_id}}">{{category.name}}</ion-select-option>
+          </ion-select>
+          <ion-label class="create-label" >Автор</ion-label>
+          <ion-input class="input" placeholder="Введите автора фильма"></ion-input>
+          <ion-label class="create-label" >Дата выхода</ion-label>
+          <ion-input type="date" class="input" placeholder="Введите дату"></ion-input>
+          <ion-label class="create-label">Описание фильма</ion-label>
+          <ion-textarea class="input-textarea" placeholder="Введите описание"></ion-textarea>
+          <ion-label class="create-label">Видео</ion-label>
+         <input type="file" (change)="changeCategory($event)" style="opacity: 0; " #file >
+         <ion-button class="file-button" (click)="file.click()" >Загрузить файл</ion-button>
+         <div class="video-peview"></div>
       </form>
+   
         
     </section>
 

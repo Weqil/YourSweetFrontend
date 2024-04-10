@@ -7,6 +7,7 @@ import { SliderComponent } from './components/slider/slider.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
+import { CategoryCreateComponent } from './views/create/category-create/category-create.component';
 import { CreateComponent } from './views/create/create.component';
 import {
   HttpClientModule,
@@ -15,6 +16,7 @@ import {
 } from '@angular/common/http'
 import { FilmsService } from './services/films.service';
 import { QueryBuilderService } from './services/query-builder.service';
+import { CategoriesService } from './services/categories.service';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { QueryBuilderService } from './services/query-builder.service';
     CreateComponent,
     HeaderComponent,
     SliderComponent,
+    CategoryCreateComponent,
     
   ],
   imports: [
@@ -34,7 +37,8 @@ import { QueryBuilderService } from './services/query-builder.service';
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   FilmsService,
-  QueryBuilderService
+  QueryBuilderService,
+  CategoriesService
   ],
   bootstrap: [AppComponent],
 })
