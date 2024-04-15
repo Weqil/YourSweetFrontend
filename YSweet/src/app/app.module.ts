@@ -17,7 +17,7 @@ import {
 import { FilmsService } from './services/films.service';
 import { QueryBuilderService } from './services/query-builder.service';
 import { CategoriesService } from './services/categories.service';
-
+import { FormsModule,FormGroup,ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +29,8 @@ import { CategoriesService } from './services/categories.service';
     
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     IonicModule.forRoot(), 
     AppRoutingModule,

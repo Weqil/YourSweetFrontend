@@ -1,3 +1,18 @@
-<p>
-  category-create works!
-</p>
+<main class="main">
+  <app-header></app-header>
+  <section class="main-content">
+    <h2 class="create-header">Создание новой категории</h2>
+    <form [formGroup]="categoriesForm"  class="create-form" action="">
+      <ion-label class="create-label" >Название</ion-label>
+      <ion-input class="input" formControlName="name" placeholder="Введите название категории"></ion-input>
+      <button (click)="onSubmit()" type="button" class="submit-button">Создать</button>
+    </form>
+    <div class="create-form">
+      <ion-label class="create-label">Текущие</ion-label>
+      <div class="categories-grid">
+        <button *ngFor="let category of categories" class="categories-grid-item">{{category.name}}</button>
+      </div>
+    </div>
+  </section>
+  
+</main>

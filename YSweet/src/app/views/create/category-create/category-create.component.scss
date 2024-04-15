@@ -1,0 +1,42 @@
+@import "../create.component.scss";
+.categories-grid-item{
+    background-color: #1A1A1D;
+    border:2px solid #4F4F4F;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular';
+    width: 7rem;
+    transition: 0.5s all;
+}
+.categories-grid-item:hover{
+    transition: 0.5s all;
+    background-color: #4F4F4F;
+    border:2px solid #1A1A1D;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 14px;
+    font-family: 'Montserrat-Regular';
+    width: 7rem;
+}
+
+.categories-grid{
+    margin-top: 1rem;
+    max-width: 300px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+
+@media (max-width: 450px) {
+    .categories-grid{
+        max-width: 300px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+    }
+}

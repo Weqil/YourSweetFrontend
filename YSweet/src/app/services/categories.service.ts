@@ -9,11 +9,14 @@ import * as cors from 'cors';
 export class CategoriesService {
 
   constructor(
-    private hhtp:HttpClient
+    private http:HttpClient
   ) { 
 
   }
   getCategories(){
-   return this.hhtp.get<ICategory[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories`)
+   return this.http.get<ICategory[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories`)
+  }
+  createCategories(category){
+   return this.http.post<any>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories`,category)
   }
 }

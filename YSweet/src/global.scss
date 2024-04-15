@@ -46,12 +46,36 @@ html{
 }
 
 .main-content{
-    padding-left: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
-    padding-right: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
+    padding-left: clamp(0.3rem, -2.727rem + 13.64vw, 7.5rem);
+    padding-right: clamp(0.3rem, -2.727rem + 13.64vw, 7.5rem);
     max-width: 1200px;
     margin: auto;
     background: #1A1A1D;
 }
+.submit-button{
+    background-color: #1A1A1D;
+    border:2px solid #4F4F4F;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 16px;
+    font-family: 'Montserrat-Regular';
+    min-width: 10rem;
+    transition: 0.5s all;
+
+}
+.submit-button:hover{
+    transition: 0.5s all;
+    background-color: #4F4F4F;
+    border:2px solid #1A1A1D;
+    color: #fff;
+    border-radius: 6px;
+    padding: 0.8rem;
+    font-size: 16px;
+    font-family: 'Montserrat-Regular';
+    min-width: 10rem;
+}
+
 
 ul{
     list-style-type: none;
