@@ -16,4 +16,10 @@ export class FilmsService {
   getFilms(params: any) {
     return this.http.get<IFilm[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/films`, {params: params})
   }
+  addFilmsAvatar(data: any) {
+    return this.http.post(`${environment.BACK_URL}:${environment.BACK_PORT}/films-avatar`, data )
+  }
+  addFilms(data: any) {
+    return this.http.post(`${environment.BACK_URL}:${environment.BACK_PORT}/films`, data )
+  }
 }

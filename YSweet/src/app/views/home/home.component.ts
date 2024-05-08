@@ -6,6 +6,7 @@ import { QueryBuilderService } from 'src/app/services/query-builder.service';
 import { IFilm } from 'src/app/models/film';
 import { EMPTY, Subject, catchError, delay, of, retry, takeUntil } from 'rxjs';
 import { WebsocketService } from '../../services/websocket.service';
+import { LoaderService } from 'src/app/services/loader.service';
 
 
 @Component({
@@ -20,10 +21,18 @@ export class HomeComponent  implements OnInit {
   constructor(
     private filmsService: FilmsService,
     private queryBuild: QueryBuilderService,
-    private websocketService: WebsocketService
+    private websocketService: WebsocketService,
+    private loaderService:LoaderService
   ) { }
 
   films!: IFilm[] 
+
+  loaderTest(){
+    console.log('test')
+    console.log(this.loaderService.loaderShow)
+    this.loaderService.show()
+    setTimeout(()=>{this.loaderService.hide()},3000)
+  }
 
   getTopFilms() {
     this.filmsService.getFilms(this.queryBuild.queryBuilder('filmsForHome')).pipe(

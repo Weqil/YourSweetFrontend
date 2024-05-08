@@ -1,3 +1,6 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  
+  <div *ngIf="this.loaderService.loaderShow" class="loader-wrapper"></div>
+  <div *ngIf="this.loaderService.loaderShow" class="loader"></div>
 </ion-app>

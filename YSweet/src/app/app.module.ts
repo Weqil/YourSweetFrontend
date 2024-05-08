@@ -17,6 +17,7 @@ import {
 import { FilmsService } from './services/films.service';
 import { QueryBuilderService } from './services/query-builder.service';
 import { CategoriesService } from './services/categories.service';
+import { LoaderService } from './services/loader.service';
 import { FormsModule,FormGroup,ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { FormsModule,FormGroup,ReactiveFormsModule} from '@angular/forms';
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   FilmsService,
   QueryBuilderService,
-  CategoriesService
+  CategoriesService,
+  LoaderService
   ],
   bootstrap: [AppComponent],
 })

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { WebsocketService } from './services/websocket.service';
 import { EMPTY, catchError, of } from 'rxjs';
 import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
-
+import { LoaderService } from './services/loader.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -10,12 +10,13 @@ import { TimeInterval } from 'rxjs/internal/operators/timeInterval';
 })
 export class AppComponent implements OnInit{
   constructor(
-    private websocketService: WebsocketService
+    public websocketService: WebsocketService,
+    public loaderService:LoaderService
   ) {}
-
+  loaderValue:boolean = this.loaderService.loaderShow
   ngOnInit() {
     this.websocketService.subject.subscribe(value => {
-      console.log(value)
+      console.log(this.loaderValue)
       // value.next({m:"m"})
       // this.websocketService.messages.next({message:"m"})
     })

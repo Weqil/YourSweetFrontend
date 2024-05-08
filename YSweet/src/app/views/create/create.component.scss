@@ -52,6 +52,11 @@
 .file-button{
     --background: #303033;
 }
+
+.file-label{
+    margin-left: 0.5rem;
+    font-size: 12px;
+}
   
 .video-peview{
     border-radius: 22px;
@@ -62,4 +67,9 @@
     margin-bottom: 2rem;
     background-image: url(/assets/imgs/video-none.png);
     background-size: 404px 268px;
+}
+.film-avatar{
+    margin-top: 1rem;
+    width: 100%;
+    object-fit: cover;
 }

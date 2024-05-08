@@ -73,11 +73,12 @@ export class CategoryCreateComponent  implements OnInit {
   }
 
   ngOnInit() {
-    this.categoriesForm = new FormGroup({
-      name:new FormControl('',[ Validators.required,Validators.maxLength(3)])
+    this.categoriesForm = new FormGroup(
+    {
+      name:new FormControl('',[ Validators.required,Validators.minLength(3)])
     })
     this.categoriesChangeForm = new FormGroup({
-      name:new FormControl('',[ Validators.required,Validators.maxLength(3)])
+      name:new FormControl('',[ Validators.required,Validators.minLength(3)])
     })
 
     this.getCategories()
