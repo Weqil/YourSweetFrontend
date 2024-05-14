@@ -23,14 +23,29 @@
 
           <ion-label class="create-label">Обложка</ion-label>
           <div class="film-avatar">
-              <img *ngIf="avatarPath !== 0" src="{{avatarPath}}" alt="Обложка фильма" class="film-avatar_img">
+              <img *ngIf="avatarPath !==''" src="{{avatarPath}}" alt="Обложка фильма" class="film-avatar_img">
           </div>
          <input type="file" (change)="changeFile($event,'avatar')" style="opacity: 0; " #file >
        
          <ion-button class="file-button" (click)="file.click()">Загрузить файл</ion-button>
-         <div>
-          <ion-label class="create-label file-label">{{fileName}}</ion-label>
+     
+         <div class="m-t1">
+          <ion-label class="create-label">Видео</ion-label>
+          <div class="video-wrapper">
+            
+              <video src="{{videoPath}}" muted="muted" style="width: 100%;" preload="auto" controls>
+                  <!-- <source src="//storage.googleapis.com/media-session/caminandes/short.mp4#t=80" type="video/mp4"> -->
+              </video>
+         
+          </div>
+          <div>
+            <input type="file" (change)="changeFile($event,'video')" style="opacity: 0; " #fileVideo >
+            <ion-button class="file-button" (click)="fileVideo.click()">Загрузить файл</ion-button>
+          </div>
+
          </div>
+
+       
           <div class="center m-t1 m-b1">
               <button (click)="onSubmit()" class="submit-button">
                 Отправить

@@ -43,9 +43,6 @@ export class SliderComponent  implements OnInit {
 
   ngOnInit() {
     let test
-    this.FilmsService.getFilms('').subscribe(res => {
-      test = res;
-    })
     
   }
 

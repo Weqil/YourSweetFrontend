@@ -25,31 +25,35 @@ export class HomeComponent  implements OnInit {
     private loaderService:LoaderService
   ) { }
 
-  films!: IFilm[] 
+  films: any = []
 
   loaderTest(){
-    console.log('test')
-    console.log(this.loaderService.loaderShow)
     this.loaderService.show()
     setTimeout(()=>{this.loaderService.hide()},3000)
   }
 
-  getTopFilms() {
-    this.filmsService.getFilms(this.queryBuild.queryBuilder('filmsForHome')).pipe(
-      delay(100),
-      retry(3),
-      takeUntil(this.destroy$),
-      catchError(err => {
-        console.log(err)
-        return of(EMPTY)
-      }),
-    ).subscribe((response: any) => {
-        this.films = response
-      })
-  }
+  // getTopFilms() {
+  //   this.filmsService.getFilms(this.queryBuild.queryBuilder('filmsForHome')).pipe(
+  //     delay(100),
+  //     retry(3),
+  //     takeUntil(this.destroy$),
+  //     catchError(err => {
+  //       console.log(err)
+  //       return of(EMPTY)
+  //     }),
+  //   ).subscribe((response: any) => {
+  //       this.films = response
+  //     })
+  // }
 
   ngOnInit() {
-    this.getTopFilms()
+    this.filmsService.getFilms().pipe().subscribe((res)=>{
+      console.log(res)
+      res.forEach(film => {
+        this.films.push(film)
+      });
+      console.log(this.films)
+    })
   }
 
 }

@@ -5,6 +5,9 @@ import { EMPTY, Subject, catchError, delay, of, retry, takeUntil, pipe, tap } fr
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { FilmsService } from 'src/app/services/films.service';
 import { environment } from 'src/environments/environment';
+import { LoaderService } from 'src/app/services/loader.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -13,7 +16,10 @@ import { environment } from 'src/environments/environment';
 export class CreateComponent  implements OnInit {
   constructor(
     private FilmsServise:FilmsService,
-    private categoriesService:CategoriesService
+    private categoriesService:CategoriesService,
+    private loaderService:LoaderService,
+    private toastr: ToastrService,
+    private router:Router
     ) { }
   categories:ICategory[]
   fileName:string = 'Файл не выбран'
@@ -21,7 +27,11 @@ export class CreateComponent  implements OnInit {
   filmForm:FormGroup
   filmFiles:FormData = new FormData()
   avatarPath:any = ''
-
+  videoPath:any = ''
+  avatarFile:any = ''
+  videoFile:any = ''
+  filePath:any = ''
+  fileReader:any = new FileReader();
   createFilmForm: FormGroup
 
   changeCategory(event:any){
@@ -30,18 +40,41 @@ export class CreateComponent  implements OnInit {
     })
   }
 
+  readerOnload(callback: ()=> void){
+    const reader = new FileReader();
+    reader.readAsDataURL(this.file);
+    reader.onload =()=>{
+      this.filePath = reader.result as string;
+      callback()
+    };
+ 
+  }
+
   changeFile(event:any, type){
-    if(type == 'avatar'){
-      this.file = event.target.files[0]
-      this.fileName = event.target.files[0].name
-   
+    this.file = event.target.files[0];
+    this.fileName = this.file.name;
+  
+    if (type === 'avatar') {
+      this.readerOnload(()=>{
+        this.avatarFile = event.target.files[0]
+        this.avatarPath = this.filePath
+        console.log(this.avatarPath)
+      })
+    }
+    if(type === 'video'){
+      this.readerOnload(()=>{
+      this.videoFile = event.target.files[0]
+      this.videoPath = this.filePath
+      console.log(this.videoPath)
+      })
+      
     }
   }
 
 
   onSubmit(){
-    
-      this.FilmsServise.addFilmsAvatar(this.file).pipe(
+      this.loaderService.show()
+      this.FilmsServise.addFilmsAvatar(this.avatarFile).pipe(
         tap((res:any)=>{
           this.avatarPath = environment.BACK_URL+':'+environment.BACK_PORT+'/'+res.path
           this.createFilmForm.patchValue({
@@ -49,16 +82,29 @@ export class CreateComponent  implements OnInit {
           })
         })
       ).subscribe((res:any)=>{
-        this.FilmsServise.addFilms(this.createFilmForm.value).pipe().subscribe((res)=>{
-          console.log(this.createFilmForm.value)
+          this.FilmsServise.addFilmsVideo(this.videoFile).pipe(
+            tap((res:any)=>{
+              this.videoPath = environment.BACK_URL+':'+environment.BACK_PORT+'/'+res.path
+              this.createFilmForm.patchValue({
+                video:this.videoPath
+              })
+            })
+          ).subscribe((res:any)=>{
+            console.log(this.createFilmForm.value)
+            this.FilmsServise.addFilms(this.createFilmForm.value).pipe().subscribe((res)=>{
+              this.loaderService.hide()
+              this.toastr.success('Фильм создан');
+              this.router.navigate([''])
+            })
+          })
         })
-        
-     })
+      
 
    
   }
 
   ngOnInit() {
+    
     this.categoriesService.getCategories().pipe().subscribe((res:any)=>{
       this.categories = res
     })
@@ -70,6 +116,7 @@ export class CreateComponent  implements OnInit {
       author:new FormControl('',[ Validators.required, Validators.minLength(3)]),
       admin_id:new FormControl('1'),
       avatar:new FormControl('',[ Validators.required]),
+      video:new FormControl('',[Validators.required])
       
     })
   }

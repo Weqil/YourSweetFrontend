@@ -19,9 +19,17 @@ import { QueryBuilderService } from './services/query-builder.service';
 import { CategoriesService } from './services/categories.service';
 import { LoaderService } from './services/loader.service';
 import { FormsModule,FormGroup,ReactiveFormsModule} from '@angular/forms';
+import {VgCoreModule} from '@videogular/ngx-videogular/core';
+import {VgControlsModule} from '@videogular/ngx-videogular/controls';
+import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
+import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { CardPreviewComponent } from './components/card-preview/card-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
+    CardPreviewComponent,
     HomeComponent,
     CreateComponent,
     HeaderComponent,
@@ -30,13 +38,19 @@ import { FormsModule,FormGroup,ReactiveFormsModule} from '@angular/forms';
     
   ],
   imports: [
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
     IonicModule.forRoot(), 
     AppRoutingModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   FilmsService,
