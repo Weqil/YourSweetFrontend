@@ -1,0 +1,41 @@
+.avatar-wrapper{
+    display: flex;
+    background-color: #fff;
+    max-width: 15rem;
+    max-height: 20rem;
+    min-width: 15rem;
+    min-height: 20rem;
+    background-position: center;
+    background-size: 100%;
+    
+}
+.film-section{ 
+    display: flex;
+    margin-top: 2rem;
+}
+.film-name{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'SF-Pro-Display-Bold';
+    font-size: 4rem;
+}
+.film-description{
+    margin-top: 1rem;
+    font-family: 'Montserrat-Regular';
+    font-size: 1rem;
+    margin-bottom: 3rem;
+}
+.film-date{
+
+    font-family: 'SF-Pro-Display-Bold';
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+.info-container{
+    margin-left: 4rem;
+    
+}
+.film-modal{
+    --width: 80%;
+    --height: 80%;
+}

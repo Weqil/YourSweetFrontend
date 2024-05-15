@@ -25,12 +25,14 @@ import {VgOverlayPlayModule} from '@videogular/ngx-videogular/overlay-play';
 import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FilmShowComponent } from './views/film-show/film-show.component';
 import { CardPreviewComponent } from './components/card-preview/card-preview.component';
 @NgModule({
   declarations: [
     AppComponent,
     CardPreviewComponent,
     HomeComponent,
+    FilmShowComponent,
     CreateComponent,
     HeaderComponent,
     SliderComponent,

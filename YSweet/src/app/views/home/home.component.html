@@ -6,7 +6,7 @@
     <ion-grid>
       <ion-row>
         <ion-col class="card" *ngFor="let film of films" size="1">
-          <app-card-preview [name]="film.name" [img]="film.avatar"></app-card-preview>
+          <app-card-preview  [routerLink]="['film',film.film_id]" [name]="film.name" [img]="film.avatar"></app-card-preview>
         </ion-col>
       </ion-row>
     </ion-grid>

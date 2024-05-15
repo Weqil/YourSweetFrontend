@@ -1,0 +1,35 @@
+<!-- 
+<section class="main">
+  <app-header></app-header>
+  
+</section>
+ -->
+
+
+ <ion-router-outlet>
+    <section class="main">
+      <app-header></app-header>
+      <section class="main-content">
+        <div *ngIf="this.film" class="film-section">
+          <div style="background-image: url('{{this.film.avatar}}');" class="avatar-wrapper"></div>
+          <div class="info-container">
+            <h1 class="film-name">{{this.film.name}}</h1>
+            <h3 class="film-date">Дата выхода:&#160;{{this.film.data_created}}</h3>
+            <h3 class="film-date">Режиссёр:&#160;{{this.film.author}}</h3>
+            <h2 class="film-description">{{this.film.description}}</h2>
+            <button id="view" class="submit-button">
+              Смотреть
+            </button>
+            <ion-modal class="film-modal" trigger="view">
+              <ng-template>
+                <video src="{{video}}" muted="muted" style="width: 100%; height: 100%;" preload="auto" controls></video>
+              </ng-template>
+            
+            </ion-modal>
+          </div>
+        
+        </div>
+      </section>
+    </section>
+ </ion-router-outlet>
+

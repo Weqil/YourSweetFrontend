@@ -8,7 +8,9 @@
  * For more information on global stylesheets, visit the documentation:
  * https://ionicframework.com/docs/layout/global-stylesheets
  */
-
+h1,h2,h3{
+    margin: 0;
+}
 /* Core CSS required for Ionic components to work properly */
 @import "@ionic/angular/css/core.css";
 // regular style toast
@@ -29,18 +31,22 @@
 
 @font-face {
     font-family: 'SF-Pro-Display-Regular';
+    src: url('./assets/fonts/San Francisco Pro Display/SF-Pro-Display-Regular.otf');
+}
+@font-face {
+    font-family: 'SF-Pro-Display-Bold';
     src: url('./assets/fonts/San Francisco Pro Display/SF-Pro-Display-Bold.otf');
 }
 @font-face {
-    font-family: 'Montserrat-Regular';
-    src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf');
+	font-family: 'Montserrat-Regular'; 
+	src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf'); 
 }
 html{
     height: 100%;
 }
 .main{
-    overflow-y: scroll;
-    overflow-x: scroll;
+    overflow-y: auto;
+    overflow-x: auto;
     height: 100%;
     width: 100%;
     background: #1A1A1D;
