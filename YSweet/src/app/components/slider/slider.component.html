@@ -1,14 +1,22 @@
 <section class="slider">
-
-  <div #sliderMain class="slider-compponent-main">
-    <div style="" class="slider-compponent"></div>
-    <div style="background: blue;" class="slider-compponent"></div>
-    <div style="background: green;" class="slider-compponent"></div>
+  <div  #sliderMain class="slider-compponent-main">
+    <div [routerLink]="['film',filmArray[0].film_id]" *ngIf="filmArray[0]" style="background-image: url('{{filmArray[0].back}}');" class="slider-compponent"></div>
+    <div [routerLink]="['film',filmArray[1].film_id]" *ngIf="filmArray[1]" style="background-image: url('{{filmArray[1].back}}');" class="slider-compponent"></div>
+    <div [routerLink]="['film',filmArray[2].film_id]" *ngIf="filmArray[2]" style="background-image: url('{{filmArray[2].back}}');" class="slider-compponent"></div>
+    
   </div>
-  
-
-
-
 </section>
-<ion-button (click)="back()">Назад</ion-button> 
-<ion-button (click)="next()">Вперед</ion-button>
+<div class="button-container">
+  <div>
+    <button class="back" (click)="back()">
+      <img src="/assets/icon/arrow.svg" alt="">
+    </button> 
+  </div>
+
+  <div>
+    <button class="next" (click)="next()">
+      <img src="/assets/icon/arrow.svg" alt="">
+    </button>
+  </div>
+
+</div>

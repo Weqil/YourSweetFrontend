@@ -26,7 +26,7 @@ export class HomeComponent  implements OnInit {
   ) { }
 
   films: any = []
-
+  filmSlider: any = []
   loaderTest(){
     this.loaderService.show()
     setTimeout(()=>{this.loaderService.hide()},3000)
@@ -47,8 +47,10 @@ export class HomeComponent  implements OnInit {
   // }
 
   ngOnInit() {
+    this.filmsService.getFilmsNew(3).pipe().subscribe((res)=>{
+      this.filmSlider = res
+    })
     this.filmsService.getFilms().pipe().subscribe((res)=>{
-      console.log(res)
       res.forEach(film => {
         this.films.push(film)
       });

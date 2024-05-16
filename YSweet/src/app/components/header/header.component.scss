@@ -1,4 +1,6 @@
 .header{
+    
+    z-index: 100;
     padding-top: 1rem;
     padding-left: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
     padding-right: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
@@ -9,8 +11,10 @@
     font-family: 'SF-Pro-Display-Regular';
     display: flex;
     justify-content: space-between;
+    
   
     .header-logo{
+        cursor: pointer;
         display: flex;
         align-items: center;
         max-width: 140px;

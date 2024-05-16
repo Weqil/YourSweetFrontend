@@ -32,6 +32,8 @@ export class CreateComponent  implements OnInit {
   videoFile:any = ''
   filePath:any = ''
   fileReader:any = new FileReader();
+  backPath:any = ''
+  backFile:any = ''
   createFilmForm: FormGroup
 
   changeCategory(event:any){
@@ -69,6 +71,14 @@ export class CreateComponent  implements OnInit {
       })
       
     }
+    if(type === 'back'){
+      this.readerOnload(()=>{
+      this.backFile = event.target.files[0]
+      this.backPath = this.filePath
+      console.log(this.videoPath)
+      })
+      
+    }
   }
 
 
@@ -90,12 +100,21 @@ export class CreateComponent  implements OnInit {
               })
             })
           ).subscribe((res:any)=>{
-            console.log(this.createFilmForm.value)
-            this.FilmsServise.addFilms(this.createFilmForm.value).pipe().subscribe((res)=>{
-              this.loaderService.hide()
-              this.toastr.success('Фильм создан');
-              this.router.navigate([''])
-            })
+              this.FilmsServise.addFilmsBack(this.backFile).pipe(
+                tap((res:any)=>{
+                  this.backPath = environment.BACK_URL+':'+environment.BACK_PORT+'/'+res.path
+                  this.createFilmForm.patchValue({
+                    back:this.backPath
+              })
+                })
+              ).subscribe((res:any)=>{
+                this.FilmsServise.addFilms(this.createFilmForm.value).pipe().subscribe((res)=>{
+                  this.loaderService.hide()
+                  this.toastr.success('Фильм создан');
+                  this.router.navigate([''])
+                })
+              })
+           
           })
         })
       
@@ -116,8 +135,8 @@ export class CreateComponent  implements OnInit {
       author:new FormControl('',[ Validators.required, Validators.minLength(3)]),
       admin_id:new FormControl('1'),
       avatar:new FormControl('',[ Validators.required]),
-      video:new FormControl('',[Validators.required])
-      
+      video:new FormControl('',[Validators.required]),
+      back:new FormControl('',[Validators.required])
     })
   }
 }

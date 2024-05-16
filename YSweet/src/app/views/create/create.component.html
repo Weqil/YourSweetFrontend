@@ -26,9 +26,15 @@
               <img *ngIf="avatarPath !==''" src="{{avatarPath}}" alt="Обложка фильма" class="film-avatar_img">
           </div>
          <input type="file" (change)="changeFile($event,'avatar')" style="opacity: 0; " #file >
-       
          <ion-button class="file-button" (click)="file.click()">Загрузить файл</ion-button>
      
+         <ion-label class="create-label mt-1">Задний фон</ion-label>
+          <div class="film-background">
+              <img *ngIf="backPath !==''" src="{{backPath}}" alt="Обложка фильма" class="film-avatar_img">
+          </div>
+          <input type="file" (change)="changeFile($event,'back')" style="opacity: 0; " #fileBack >
+          <ion-button class="file-button" (click)="fileBack.click()">Загрузить файл</ion-button>
+
          <div class="m-t1">
           <ion-label class="create-label">Видео</ion-label>
           <div class="video-wrapper">
