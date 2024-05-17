@@ -26,6 +26,7 @@ import {VgBufferingModule} from '@videogular/ngx-videogular/buffering';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FilmShowComponent } from './views/film-show/film-show.component';
+import { CatalogComponent } from './views/catalog/catalog.component';
 import { CardPreviewComponent } from './components/card-preview/card-preview.component';
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CardPreviewComponent } from './components/card-preview/card-preview.com
     HeaderComponent,
     SliderComponent,
     CategoryCreateComponent,
+    CatalogComponent
     
   ],
   imports: [

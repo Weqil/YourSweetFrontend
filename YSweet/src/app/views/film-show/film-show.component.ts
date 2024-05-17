@@ -15,6 +15,9 @@ export class FilmShowComponent  implements OnInit {
   id:string = this.route.snapshot.params['id']
   video:any = ''
   film:any
+  test(){
+    console.log('hi')
+  }
   ngOnInit() {
     this.filmService.getFilmsById(this.id).pipe().subscribe((res)=>{
       this.video = res[0].video

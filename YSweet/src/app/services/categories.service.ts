@@ -16,6 +16,9 @@ export class CategoriesService {
   getCategories(){
    return this.http.get<ICategory[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories`)
   }
+  getCategoriesById(id){
+   return this.http.get<ICategory[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories-id?id=${id}`)
+  }
   createCategories(category){
    return this.http.post<any>(`${environment.BACK_URL}:${environment.BACK_PORT}/categories`,category)
   }

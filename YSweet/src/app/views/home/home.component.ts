@@ -5,7 +5,7 @@ import { FilmsService } from 'src/app/services/films.service';
 import { QueryBuilderService } from 'src/app/services/query-builder.service';
 import { IFilm } from 'src/app/models/film';
 import { EMPTY, Subject, catchError, delay, of, retry, takeUntil } from 'rxjs';
-import { WebsocketService } from '../../services/websocket.service';
+// import { WebsocketService } from '../../services/websocket.service';
 import { LoaderService } from 'src/app/services/loader.service';
 
 
@@ -21,7 +21,7 @@ export class HomeComponent  implements OnInit {
   constructor(
     private filmsService: FilmsService,
     private queryBuild: QueryBuilderService,
-    private websocketService: WebsocketService,
+    // private websocketService: WebsocketService,
     private loaderService:LoaderService
   ) { }
 

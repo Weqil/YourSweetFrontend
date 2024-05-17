@@ -4,16 +4,19 @@
   </div>
 
   <ul class="header-container">
-    <li class="header-container-item">
-     <a href="">Новинки</a> 
+    <li [routerLink]="['/catalog','new']" class="header-container-item">
+      Новинки
     </li>
     
-    <li class="header-container-item">
-      <a href="">Жанр</a>
+    <li class="header-container-item header-container-item_category  ">
+       Жанр
+        <ion-list class="category-list">
+              <ion-item [routerLink]="['/catalog',category.category_id]" *ngFor="let category of categories"  class="category-list-item">{{category.name}}</ion-item>          
+        </ion-list>
     </li>
 
-    <li class="header-container-item">
-      <a href="">Каталог</a>
+    <li [routerLink]="['/catalog','main']" class="header-container-item">
+       Каталог
     </li>
 
     <li class="header-container-item_search">

@@ -1,0 +1,34 @@
+<ion-router-outlet>
+  <section class="main">
+    <app-header></app-header>
+    <section class="main-content">
+      <ion-col>
+        <h1 class="category-name" *ngIf="this.category">{{this.category.name}}</h1>
+      </ion-col>
+      <ion-col>
+        <h1 class="category-name"  *ngIf="this.routValue == 'main'">Каталог</h1>
+      </ion-col>
+      <ion-grid>
+        <ion-row>
+          <ng-container *ngIf="this.routValue == 'main'">
+            <ion-col class="card" *ngFor="let film of films" size="1">
+              <app-card-preview  [routerLink]="['film',film.film_id]" [name]="film.name" [img]="film.avatar"></app-card-preview>
+            </ion-col>
+          </ng-container>
+          <ng-container *ngIf="this.routValue !== 'new' && this.routValue !== 'main'">
+      
+      
+            <ion-col class="card" *ngFor="let film of filmsGenre" size="1">
+              <app-card-preview  [routerLink]="['/film',film.film_id]" [name]="film.name" [img]="film.avatar"></app-card-preview>
+            </ion-col>
+          </ng-container>
+         
+        
+          <div *ngIf="this.routValue == 'new'" style="width: 100px;height: 100px;background-color: #ff0404;"></div>
+          <div *ngIf="this.routValue == 1" style="width: 100px;height: 100px;background-color: #00ff3c;"></div>
+
+        </ion-row>
+      </ion-grid>
+    </section>
+  </section>
+</ion-router-outlet>

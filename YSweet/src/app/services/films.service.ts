@@ -19,6 +19,9 @@ export class FilmsService {
   getFilmsById(id) {
     return this.http.get<any[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/films-id?id=${id}`)
   }
+  getFilmsByCategory(category) {
+    return this.http.get<any[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/films-category?id=${category}`)
+  }
   getFilmsNew(limit){
     return this.http.get<any[]>(`${environment.BACK_URL}:${environment.BACK_PORT}/films-new?limit=${limit}`)
   }

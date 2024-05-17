@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FilmsService } from 'src/app/services/films.service';
+import { CategoriesService } from 'src/app/services/categories.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,8 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent  implements OnInit {
 
-  constructor() { }
+  constructor(
+    private filmService:FilmsService,
+    private categoriesService:CategoriesService
 
-  ngOnInit() {}
+  ) { }
+  categories:any = []
+  submitCategories(){
+    this.categoriesService.getCategories().pipe().subscribe((res)=>{
+      this.categories = res
+    })
+  }
+  ngOnInit() {
+    this.submitCategories()
+  }
 
 }
