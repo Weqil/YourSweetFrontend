@@ -1,0 +1,28 @@
+<nav class="header">
+  <div [routerLink]="['']" class="header-logo">
+      <img src="/assets/imgs/logo.png" alt="" class="header-logo_img">
+  </div>
+
+  <ul class="header-container">
+    <li [routerLink]="['/catalog','new']" class="header-container-item">
+      Новинки
+    </li>
+    
+    <li class="header-container-item header-container-item_category  ">
+       Жанр
+        <ion-list class="category-list">
+              <ion-item [routerLink]="['/catalog',category.category_id]" *ngFor="let category of categories"  class="category-list-item">{{category.name}}</ion-item>          
+        </ion-list>
+    </li>
+
+    <li [routerLink]="['/catalog','main']" class="header-container-item">
+       Каталог
+    </li>
+
+    <li class="header-container-item_search">
+      <img src="/assets/icon/seacrh.png" alt="">
+    </li>
+
+    
+  </ul>
+</nav>

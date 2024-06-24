@@ -1,0 +1,85 @@
+.header{
+    
+    z-index: 100;
+    padding-top: 1rem;
+    padding-left: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
+    padding-right: clamp(0rem, -2.727rem + 13.64vw, 7.5rem);
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    color: #fff;
+    font-family: 'SF-Pro-Display-Regular';
+    display: flex;
+    justify-content: space-between;
+    
+  
+    .header-logo{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        max-width: 140px;
+        .header-logo_img{
+            max-width: 240px;
+            max-height: 33px;
+        }
+    }
+  
+    .header-container{
+        display: flex;
+        .header-container-item{
+            cursor: pointer;
+            padding-left: clamp(1rem, -0.091rem + 5.45vw, 4rem);
+            
+        }
+        .header-container-item_search{
+            padding-left: 1rem;
+            border-left: 2px solid #fff;
+            margin-left: 3rem;
+           
+        }
+        .header-container-item_search img{
+            min-width: 17px;
+            min-height: 17px;
+            max-width: 17px;
+            max-height: 17px;
+        }
+    }
+}
+
+
+.header-container-item_category{
+    .category-list{
+        opacity: 0;
+        height: 0;
+        transition: 0.3s;
+        position: absolute;
+        z-index: 100;
+        transition: 0.3s opacity;
+        background: #242427;
+        .category-list-item{
+            width: 0rem;
+            transition: 0.3s opacity;
+            --background: #242427;
+        }
+    }
+}
+.header-container-item_category:hover{
+    .category-list{
+        height: auto;
+        opacity: 1;
+        max-height: none;
+        transition: 0.3s opacity;
+        position: absolute;
+        z-index: 100;
+        background: #242427;
+        .category-list-item{
+            width: 10rem;
+            transition: 0.3s opacity;
+            --background: #242427;
+        }
+        .category-list-item:hover{
+            transition: 0.3s var(--background);
+            --background: #39393d;
+        }
+    }
+}

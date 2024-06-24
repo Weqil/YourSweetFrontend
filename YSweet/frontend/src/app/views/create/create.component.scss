@@ -1,0 +1,100 @@
+.main{
+    .main-content{
+        .create-header{
+          margin-top: 2rem;
+           color: #fff;
+           font-family: 'Montserrat-Regular';
+           text-align: center;
+           font-size: clamp(1rem, 0.545rem + 2.27vw, 2.25rem);
+        }
+    }
+}
+
+.create-form{
+    padding-top: 2rem;
+    margin: auto;
+    max-width: 500px;
+
+    
+}
+
+.create-label{
+    font-size: clamp(0.5rem, 0.545rem + 2.27vw, 1.25rem);
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+}
+
+.input{
+    margin-bottom: 1.3rem;
+    margin-top: 0.5rem;
+    background: #303033;
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+    border-radius: 8px;
+    --padding-start: 1rem;
+    --width: 100%;
+    --padding-end: 1rem;
+}
+
+.input-textarea{
+    margin-bottom: 1.3rem;
+    margin-top: 0.5rem;
+    background: #303033;
+    font-family: 'Montserrat-Regular';
+    color: #fff;
+    border-radius: 8px;
+    --padding-start: 1rem;
+    --padding-end: 1rem;
+    min-height: 150px;
+}
+
+
+.file-button{
+    --background: #303033;
+}
+
+.file-label{
+    margin-left: 0.5rem;
+    font-size: 12px;
+}
+  
+.video-peview{
+    border-radius: 22px;
+    margin-top: 2rem;
+    background: #303033;
+    height: 15rem;
+    max-width: 26rem;
+    margin-bottom: 2rem;
+    background-image: url(/assets/imgs/video-none.png);
+    background-size: 404px 268px;
+}
+.film-avatar{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 12rem;
+    min-height: 16rem;
+    overflow: hidden;
+    border-radius: 16px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(35 35 35);
+    cursor: pointer;
+}
+.film-background{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    width: 100%;
+    min-height: 16rem;
+    overflow: hidden;
+    border-radius: 16px;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: rgb(35 35 35);
+    cursor: pointer;
+}
+
+.video-wrapper{
+    padding-top: 1rem;
+}

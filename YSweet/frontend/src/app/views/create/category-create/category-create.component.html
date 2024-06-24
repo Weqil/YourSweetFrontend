@@ -1,0 +1,34 @@
+<main class="main">
+  <app-header></app-header>
+  <section class="main-content">
+    <h2 class="create-header">Создание новой категории</h2>
+    <form [formGroup]="categoriesForm"  class="create-form" action="">
+      <ion-label class="create-label" >Название</ion-label>
+      <ion-input class="input" formControlName="name" placeholder="Введите название категории"></ion-input>
+      <button (click)="onSubmit()" type="button" class="submit-button">Создать</button>
+    </form>
+    <div class="create-form">
+      <ion-label class="create-label">Текущие</ion-label>
+      <div class="categories-grid">
+        <button (click)="openModalFunc($event)" *ngFor="let category of categories" name="{{category.name}}" id = "{{category.category_id}}" class="categories-grid-item">{{category.name}}</button>
+      </div>
+    </div>
+  </section>
+  
+  <ion-modal
+  class="change-category"
+  [isOpen]="openModal"
+  (ionModalDidDismiss)="closeModalFunc()">
+  <ng-template>
+    <div class="modal-main">
+      <h2 class="create-header">Изменить категорию</h2>
+      <form [formGroup]="categoriesChangeForm">
+        <ion-input formControlName="name" class="input-modal" placeholder="Введите название категории"></ion-input>
+      </form>
+      <button (click)="changeCategory()" type="button" class="submit-button">Сохранить</button>
+      <button (click)="removeCategory()" type="button" class="submit-button">Удалить</button>
+    </div>
+  </ng-template>
+
+  </ion-modal>
+</main>

@@ -1,0 +1,16 @@
+ion-grid{
+    margin-top: 2rem;
+    --ion-grid-columns: 4;
+}
+@media screen and (max-width:720px) {
+    ion-grid{
+        margin-top: 2rem;
+        --ion-grid-columns: 1;
+    }
+    .card{
+       
+        margin: 20px;
+        display: flex;
+        justify-content:center;
+    }
+}

@@ -1,0 +1,67 @@
+<main class="main">
+  <app-header></app-header>
+    <section class="main-content">
+      <h2 class="create-header">Создание нового фильма</h2>
+      <form [formGroup]="createFilmForm" class="create-form" action="">
+
+          <ion-label class="create-label" >Название</ion-label>
+          <ion-input formControlName="name" class="input" placeholder="Введите название фильма"></ion-input>
+
+          <ion-label class="create-label">Жанр</ion-label>
+          <ion-select (ionChange)="changeCategory($event)" class="input" placeholder="Выберите жанр">
+            <ion-select-option *ngFor="let category of categories" value="{{category.category_id}}">{{category.name}}</ion-select-option>
+          </ion-select>
+
+          <ion-label class="create-label" >Автор</ion-label>
+          <ion-input formControlName="author" class="input" placeholder="Введите автора фильма"></ion-input>
+
+          <ion-label class="create-label" >Дата выхода</ion-label>
+          <ion-input formControlName="data_created" type="date" class="input" placeholder="Введите дату"></ion-input>
+
+          <ion-label class="create-label">Описание фильма</ion-label>
+          <ion-textarea formControlName="description" class="input-textarea" placeholder="Введите описание"></ion-textarea>
+
+          <ion-label class="create-label">Обложка</ion-label>
+          <div class="film-avatar">
+              <img *ngIf="avatarPath !==''" src="{{avatarPath}}" alt="Обложка фильма" class="film-avatar_img">
+          </div>
+         <input type="file" (change)="changeFile($event,'avatar')" style="opacity: 0; " #file >
+         <ion-button class="file-button" (click)="file.click()">Загрузить файл</ion-button>
+     
+         <ion-label class="create-label mt-1">Задний фон</ion-label>
+          <div class="film-background">
+              <img *ngIf="backPath !==''" src="{{backPath}}" alt="Обложка фильма" class="film-avatar_img">
+          </div>
+          <input type="file" (change)="changeFile($event,'back')" style="opacity: 0; " #fileBack >
+          <ion-button class="file-button" (click)="fileBack.click()">Загрузить файл</ion-button>
+
+         <div class="m-t1">
+          <ion-label class="create-label">Видео</ion-label>
+          <div class="video-wrapper">
+            
+              <video src="{{videoPath}}" muted="muted" style="width: 100%;" preload="auto" controls>
+                  <!-- <source src="//storage.googleapis.com/media-session/caminandes/short.mp4#t=80" type="video/mp4"> -->
+              </video>
+         
+          </div>
+          <div>
+            <input type="file" (change)="changeFile($event,'video')" style="opacity: 0; " #fileVideo >
+            <ion-button class="file-button" (click)="fileVideo.click()">Загрузить файл</ion-button>
+          </div>
+
+         </div>
+
+       
+          <div class="center m-t1 m-b1">
+              <button (click)="onSubmit()" class="submit-button">
+                Отправить
+              </button>
+          </div>
+           
+      </form>
+      
+        
+    </section>
+    
+   
+</main>
